@@ -18,7 +18,7 @@
         <include>main_test.clj</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8" filtered="true">
+    <fileSet encoding="UTF-8">
       <directory>src/main/assembly</directory>
       <includes>
         <include>**/*.xml</include>
