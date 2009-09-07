@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><archetype-descriptor name="clojure-quickstart">
+  <fileSets>
+    <fileSet encoding="UTF-8" filtered="true" packaged="true">
+      <directory>src/main/clojure</directory>
+      <includes>
+        <include>**/*.clj</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8" filtered="true">
+      <directory>src/main/assembly</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

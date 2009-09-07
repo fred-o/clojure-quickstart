@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><archetype>
+  <id>clojure-quickstart</id>
+  <resources>
+    <resource>src/main/clojure/main.clj</resource>
+    <resource>src/main/assembly/distribution.xml</resource>
+  </resources>
+</archetype>
