@@ -29,8 +29,8 @@ A long list of archetypes will be presented; pick clojure-quickstart (local arch
 This project is licensed under the MIT license.
 
 ## TODO
-- Add testing support
 - Add repl support
+- Add run support
 
 ## Contributing
 

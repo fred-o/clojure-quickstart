@@ -2,6 +2,8 @@
   <id>clojure-quickstart</id>
   <resources>
     <resource>src/main/clojure/main.clj</resource>
+    <resource>src/test/clojure/test.clj</resource>
+    <resource>src/test/clojure/main_test.clj</resource>
     <resource>src/main/assembly/distribution.xml</resource>
   </resources>
 </archetype>
