@@ -1,108 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>${groupId}</groupId>
-  <artifactId>${artifactId}</artifactId>
-  <packaging>jar</packaging>
-  <version>${version}</version>
-  <name>${artifactId}</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>clojure-lang</artifactId>
-      <version>1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.clojure</groupId>
-      <artifactId>clojure-contrib</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency>
-	<dependency>
-	   <groupId>com.codestuffs.clojure</groupId>
-	   <artifactId>swank-clojure</artifactId>
-	   <version>1.0-SNAPSHOT</version>
-	</dependency>
-  </dependencies>
-  
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>com.theoryinpractise</groupId>
-        <artifactId>clojure-maven-plugin</artifactId>
-        <version>1.1-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <id>compile-clojure</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>test-clojure</id>
-            <phase>test</phase>
-            <goals>
-              <goal>test</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <testScript>src/test/clojure/test.clj</testScript>
-          <testSourceDirectories>
-              <testSourceDirectory>src/test/clojure</testSourceDirectory>
-          </testSourceDirectories>
-        </configuration>
-      </plugin>
-      
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>appassembler-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>appassembler-assemble</id>
-            <phase>package</phase>
-            <goals>
-              <goal>assemble</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <repositoryLayout>flat</repositoryLayout>
-          <repositoryName>lib</repositoryName>
-          <programs>
-            <program>
-              <mainClass>${groupId}.main</mainClass>
-              <name>${artifactId}</name>
-            </program>
-          </programs>
-        </configuration>
-      </plugin>
-      
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>assembly-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>assembly</goal>
-            </goals>
-          </execution>
-        </executions>
-        
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>project</descriptorRef>
-          </descriptorRefs>
-          <descriptors>
-            <descriptor>src/main/assembly/distribution.xml</descriptor>
-          </descriptors>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+	<packaging>jar</packaging>
+	<version>${version}</version>
+	<name>${artifactId}</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>org.clojure</groupId>
+			<artifactId>clojure</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.clojure</groupId>
+			<artifactId>clojure-contrib</artifactId>
+			<version>1.1.0</version>
+		</dependency>
 
-        </configuration>
-      </plugin>
-      
-    </plugins>
-  </build>
+		<!-- Uncomment the following if you want swank-clojure support
+		     and have swank-clojure installed. -->
+		<!--
+			<dependency>
+			<groupId>swank-clojure</groupId>
+			<artifactId>swank-clojure</artifactId>
+			<version>1.2.0</version>
+			</dependency>
+		-->
+
+		<!-- Uncomment the following if you want JLine support with
+		     clojure:repl -->
+		<!-- 
+			 <dependency>
+			 <groupId>jline</groupId>
+			 <artifactId>jline</artifactId>
+			 <version>0.9.94</version>
+			 </dependency>
+		-->
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.theoryinpractise</groupId>
+				<artifactId>clojure-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<executions>
+					<execution>
+						<id>compile-clojure</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>test-clojure</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<testScript>src/test/clojure/test.clj</testScript>
+					<testSourceDirectories>
+						<testSourceDirectory>src/test/clojure</testSourceDirectory>
+					</testSourceDirectories>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>appassembler-assemble</id>
+						<phase>package</phase>
+						<goals>
+							<goal>assemble</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repositoryLayout>flat</repositoryLayout>
+					<repositoryName>lib</repositoryName>
+					<programs>
+						<program>
+							<mainClass>${groupId}.main</mainClass>
+							<name>${artifactId}</name>
+						</program>
+					</programs>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>assembly-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+					</execution>
+				</executions>
+				
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>project</descriptorRef>
+					</descriptorRefs>
+					<descriptors>
+						<descriptor>src/main/assembly/distribution.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+	<repositories>
+		<repository>
+			<id>clojure-releases</id>
+			<name>Clojure Release Repository</name>
+			<url>http://build.clojure.org/releases/</url>
+		</repository>
+		<repository>
+			<id>clojure-snaphots</id>
+			<name>Clojure Snapshots Repository</name>
+			<url>http://build.clojure.org/snapshots/</url>
+		</repository>
+	</repositories>
     
 </project>
