@@ -58,7 +58,6 @@
 					</execution>
 				</executions>
 				<configuration>
-					<testScript>src/test/clojure/test.clj</testScript>
 					<testSourceDirectories>
 						<testSourceDirectory>src/test/clojure</testSourceDirectory>
 					</testSourceDirectories>

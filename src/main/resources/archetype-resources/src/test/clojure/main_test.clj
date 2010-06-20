@@ -1,4 +1,4 @@
-(ns ${groupId}.main_test
+(ns ${groupId}.main-test
   (:use clojure.contrib.test-is))
   
 (deftest my-test
